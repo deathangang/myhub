@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Optional;
+
 public class ItemRepositoryTest extends StudyApplicationTests {
 
     @Autowired
@@ -23,9 +25,16 @@ public class ItemRepositoryTest extends StudyApplicationTests {
     }
 
 
-
     @Test
     public void read() {
+        Long id = 4L;
 
+        Optional<Item> item = itemRepository.findById(id);
+
+        Assertions.assertTrue(item.isPresent());
+
+        item.ifPresent(i -> {
+            System.out.print(i);
+        });
     }
 }

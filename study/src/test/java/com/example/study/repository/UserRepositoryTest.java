@@ -1,7 +1,6 @@
 package com.example.study.repository;
 
 import com.example.study.StudyApplicationTests;
-import com.example.study.model.entity.Item;
 import com.example.study.model.entity.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -18,7 +17,7 @@ public class UserRepositoryTest extends StudyApplicationTests {
     private UserRepository userRepository;
 
     @Test
-    public void create(){
+    public void create() {
         User user = new User();
         user.setAccount("TestUser03");
         user.setEmail("TestUser01@gmail.com");
@@ -27,22 +26,17 @@ public class UserRepositoryTest extends StudyApplicationTests {
         user.setCreatedBy("test3");
 
         User newUser = userRepository.save(user);
-        System.out.println("newUser: " +newUser);
+        System.out.println("newUser: " + newUser);
     }
 
     @Test
     @Transactional
     public void read(){
-        Optional<User> user = userRepository.findByAccount("TestUser03");
+        Optional<User> user = userRepository.findById(4L);
 
         user.ifPresent(selectUser ->{
-
-            selectUser.getOrderDetailList().stream().forEach(detail ->{
-                        Item item = detail.getItem();
-                        System.out.println(detail.getItem());
-                    });
-            //System.out.println("user: " +selectUser);
-            //System.out.println("email: " +selectUser.getEmail());
+            System.out.println("user: " +selectUser);
+            System.out.println("email: " +selectUser.getEmail());
         });
 
     }
@@ -70,7 +64,7 @@ public class UserRepositoryTest extends StudyApplicationTests {
 
         Assertions.assertTrue(user.isPresent());
         user.ifPresent(selectUser ->{
-           userRepository.delete(selectUser);
+            userRepository.delete(selectUser);
         });
 
         Optional<User> deleteUser = userRepository.findById(3L);

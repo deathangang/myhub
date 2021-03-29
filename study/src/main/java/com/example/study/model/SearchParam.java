@@ -2,7 +2,6 @@ package com.example.study.model;
 
 
 import lombok.AllArgsConstructor;
-//import lombok.Data;
 import lombok.Data;
 
 @Data

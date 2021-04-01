@@ -25,14 +25,12 @@ public class OrderDetail {
     private LocalDateTime arrivalDate;
     private Integer quantity;
     private BigDecimal totalPrice;
-    private LocalDateTime registeredAt;
-    private LocalDateTime unregisteredAt;
     private LocalDateTime createdAt;
     private String createdBy;
     private LocalDateTime updatedAt;
     private String updatedBy;
     private Long itemId;
-    private Long userId;
-    private LocalDateTime orderAt;
+    private Long orderGroupId;
+
 
 }

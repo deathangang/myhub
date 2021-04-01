@@ -51,4 +51,5 @@ public class PartnerRepositoryTest extends StudyApplicationTests {
     public void read(){
 
     }
+
 }

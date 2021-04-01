@@ -30,10 +30,10 @@ public class OrderGroup {
     private Integer totalQuantity;
     private LocalDateTime orderAt;
     private LocalDateTime arrivalDate;
-    private LocalDateTime registeredAt;
-    private LocalDateTime unregisteredAt;
     private LocalDateTime createdAt;
     private String createdBy;
     private LocalDateTime updatedAt;
     private String updatedBy;
+    private Long userId;
+
 }

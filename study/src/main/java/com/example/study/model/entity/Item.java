@@ -1,8 +1,15 @@
 package com.example.study.model.entity;
 
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.ToString;
+import lombok.experimental.Accessors;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -11,6 +18,9 @@ import java.util.List;
 @Data
 @Entity
 @ToString(exclude = {"orderDetailList","partner"})
+@EntityListeners(AuditingEntityListener.class)
+@Builder //필요한 값만 생성하는 예약어
+@Accessors(chain = true) //
 public class Item {
 
     @Id
@@ -24,9 +34,16 @@ public class Item {
     private String brandName;
     private LocalDateTime registeredAt;
     private LocalDateTime unregisteredAt;
+    @CreatedDate
     private LocalDateTime createdAt;
+
+    @CreatedBy
     private String createdBy;
+
+    @LastModifiedDate
     private LocalDateTime updatedAt;
+
+    @LastModifiedBy
     private String updatedBy;
 
     //Item N : 1 Partner

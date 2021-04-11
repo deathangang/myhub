@@ -19,7 +19,7 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 @Entity
-@ToString(exclude = {"user"})
+@ToString(exclude = {"user","orderDetailList"})
 @EntityListeners(AuditingEntityListener.class)
 @Builder //필요한 값만 생성하는 예약어
 @Accessors(chain = true) //
